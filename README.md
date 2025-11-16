@@ -6,7 +6,6 @@
 
 This repository contains a production-ready MERN application that demonstrates deployment, CI/CD, monitoring, and basic performance management practices. It includes a Vite React frontend, an Express backend connecting to MongoDB Atlas, and example GitHub Actions workflows for automated builds and deployments.
 
----
 
 ## Table of Contents
 
@@ -174,14 +173,16 @@ Operational checklist:
 ## Screenshots & Assets
 
 - `assets/vercel.png` — frontend UI capture
-- `assets/render.png` — backend logs / health endpoint capture
-- `assets/workflows.png` — GitHub Actions / CI pipeline capture
-
-Example markdown for embedding:
-
 ![Frontend](./assets/vercel.png)
+
+- `assets/render.png` — backend logs / health endpoint capture
 ![Backend](./assets/render.png)
+
+- `assets/workflows.png` — GitHub Actions / CI pipeline capture
 ![CI/CD](./assets/workflows.png)
+
+
+
 
 
 
