@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build-deploy:
+  build-test-deploy:
     runs-on: ubuntu-latest
     env:
       MONGO_URI: ${{ secrets.MONGO_URI }}
@@ -24,12 +24,18 @@ jobs:
         run: npm install
         working-directory: ./backend
 
-      - name: Test backend (optional)
+      - name: Run lint
+        run: npm run lint
+        working-directory: ./backend
+        continue-on-error: false
+
+      - name: Run tests
         run: npm test
         working-directory: ./backend
+        env:
+          NODE_ENV: test
 
-      - name: Deploy backend to Render
+      - name: Deploy to Render (trigger auto-deploy)
         run: |
-          echo "Automatic deployment can be done via Render GitHub integration"
-          echo "Make sure your Render service is linked to this GitHub repo"
-
+          echo "Render auto-deploy triggers on GitHub push."
+          echo "If deployment fails, rollback manually in Render dashboard."
