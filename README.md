@@ -1,6 +1,8 @@
 # Deployment and DevOps Essentials — MERN Stack Application
 
-![CI](https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-KimaniImmaculate/actions/workflows/ci.yml/badge.svg)
+[![Frontend CI](https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-KimaniImmaculate/actions/workflows/frontend.yml/badge.svg)](https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-KimaniImmaculate/actions/workflows/frontend.yml)  
+[![Backend CI](https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-KimaniImmaculate/actions/workflows/backend.yml/badge.svg)](https://github.com/PLP-MERN-Stack-Development/deployment-and-devops-essentials-KimaniImmaculate/actions/workflows/backend.yml)
+
 
 This repository contains a production-ready MERN application that demonstrates deployment, CI/CD, monitoring, and basic performance management practices. It includes a Vite React frontend, an Express backend connecting to MongoDB Atlas, and example GitHub Actions workflows for automated builds and deployments.
 
@@ -178,9 +180,10 @@ Operational checklist:
 Example markdown for embedding:
 
 ```markdown
-![Frontend](assets/vercel.png)
-![Backend](assets/render.png)
-![CI/CD](assets/workflows.png)
+![Frontend](./assets/vercel.png)
+![Backend](./assets/render.png)
+![CI/CD](./assets/workflows.png)
+
 ```
 
 
