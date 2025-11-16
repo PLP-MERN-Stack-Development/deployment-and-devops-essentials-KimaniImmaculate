@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Suspense } from 'react'
-import { getData } from './api'
 import './App.css'
 
 
