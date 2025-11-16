@@ -30,9 +30,9 @@ mongoose.connect(MONGO_URI, {
   .catch((err) => console.error('MongoDB connection error:', err))
 
 // Sample route
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from backend!' })
-})
+app.get('/', (req, res) => {
+  res.send('Backend is running!');
+});
 
 // Error handling middleware
 app.use((err, req, res, next) => {
