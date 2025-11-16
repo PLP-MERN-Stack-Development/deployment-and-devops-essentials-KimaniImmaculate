@@ -7,9 +7,12 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    env:
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+      PORT: 5000
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Set up Node.js
@@ -21,9 +24,12 @@ jobs:
         run: npm install
         working-directory: ./backend
 
-      - name: Run tests
+      - name: Test backend (optional)
         run: npm test
         working-directory: ./backend
 
-      - name: Render auto-deploy
-        run: echo "Render will auto-deploy on push to main"
+      - name: Deploy backend to Render
+        run: |
+          echo "Automatic deployment can be done via Render GitHub integration"
+          echo "Make sure your Render service is linked to this GitHub repo"
+
