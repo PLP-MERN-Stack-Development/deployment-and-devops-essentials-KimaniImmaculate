@@ -5,6 +5,13 @@ import helmet from 'helmet'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+import * as Sentry from "@sentry/node";
+
+Sentry.init({
+  dsn: process.env.SENTRY_DSN,
+  tracesSampleRate: 1.0,
+});
+
 
 dotenv.config()
 
@@ -29,6 +36,24 @@ mongoose.connect(MONGO_URI, {
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error('MongoDB connection error:', err))
 
+// Performance Monitoring Middleware
+app.use((req, res, next) => {
+  const start = Date.now();
+
+  res.on("finish", () => {
+    const duration = Date.now() - start;
+
+    // Log slow requests (over 500ms)
+    if (duration > 500) {
+      console.warn(
+        `Slow request: ${req.method} ${req.originalUrl} - ${duration}ms`
+      );
+    }
+  });
+
+  next();
+});
+
 // Sample route
 app.get('/', (req, res) => {
   res.send('Backend is running!');
@@ -41,6 +66,8 @@ app.get("/health", (req, res) => {
     timestamp: Date.now()
   });
 });
+
+app.use(Sentry.Handlers.errorHandler());
 
 // Error handling middleware
 app.use((err, req, res) => {
