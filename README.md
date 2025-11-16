@@ -100,7 +100,7 @@ NODE_ENV=development
 Frontend (`frontend/.env`):
 
 ```
-VITE_API_URL=http://localhost:5000
+VITE_API_URL=https://your-backend.onrender.com
 ```
 
 Notes:
@@ -178,9 +178,9 @@ Operational checklist:
 Example markdown for embedding:
 
 ```markdown
-![Frontend](/assets/vercel.png)
-![Backend](/assets/render.png)
-![CI/CD](/assets/workflows.png)
+![Frontend](assets/vercel.png)
+![Backend](assets/render.png)
+![CI/CD](assets/workflows.png)
 ```
 
 
