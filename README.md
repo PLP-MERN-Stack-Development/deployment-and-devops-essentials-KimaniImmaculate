@@ -179,12 +179,10 @@ Operational checklist:
 
 Example markdown for embedding:
 
-```markdown
 ![Frontend](./assets/vercel.png)
 ![Backend](./assets/render.png)
 ![CI/CD](./assets/workflows.png)
 
-```
 
 
 
