@@ -160,25 +160,34 @@ You can extend the workflows to run integration tests, create release artifacts,
 ## Monitoring & Maintenance
 
 - **Health endpoint:** `GET /health` should return a 200 status and a JSON payload showing service and dependency status.
-- **Request logging:** Morgan emits request logs; combine with structured logging for production (JSON output)
-- **Slow request logging:** middleware logs requests taking longer than a configured threshold (default 500ms)
-- **Database:** Use MongoDB Atlas connection pooling, least-privilege users, and enable automated backups and alerts
+- **Request logging:** Morgan emits request logs; combine with structured logging for production (JSON output).
+- **Slow request logging:** Middleware logs requests taking longer than a configured threshold (default 500ms).
+- **Database:** Use MongoDB Atlas connection pooling, least-privilege users, and enable automated backups and alerts.
 
-Operational checklist:
+### Operational Checklist
 
-- Forward logs to a centralized log store or platform (Render logs, Datadog, Logflare, etc.)
-- Add basic metrics (request rate, error rate, p95 latency) and alerting
-- Keep dependencies patched and use Dependabot or similar for automated updates
+- Forward logs to a centralized log store or platform (Render logs, Datadog, Logflare, etc.).
+- Add basic metrics (request rate, error rate, p95 latency) and alerting.
+- Keep dependencies patched and use Dependabot or similar for automated updates.
+- **Add UptimeRobot monitoring:**
+  - Create an HTTP monitor pointing to your deployed backend health endpoint (e.g., `https://dashboard.uptimerobot.com/monitors/801801590`).
+  - Set alert contacts (email, SMS, Telegram, or mobile app).
+  - Configure alerts for downtime greater than 30 seconds.
+  - Optionally enable response time graphs to track latency trends over time.
+
 
 ## Screenshots & Assets
 
 - `assets/vercel.png` — frontend UI capture
+
 ![Frontend](./assets/vercel.png)
 
 - `assets/render.png` — backend logs / health endpoint capture
+
 ![Backend](./assets/render.png)
 
 - `assets/workflows.png` — GitHub Actions / CI pipeline capture
+
 ![CI/CD](./assets/workflows.png)
 
 
